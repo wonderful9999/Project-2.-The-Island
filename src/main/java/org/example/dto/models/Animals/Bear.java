@@ -6,9 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Map;
-
-import static org.example.dto.enums.AnimalsType.BEAR;
 
 @EqualsAndHashCode(callSuper = true)
 @Data

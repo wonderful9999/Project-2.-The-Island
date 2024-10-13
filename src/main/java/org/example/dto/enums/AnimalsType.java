@@ -4,6 +4,5 @@ public enum AnimalsType {
         BEAR,
         WOLF,
         HOG,
-
-        EAGLE
+        EAGLE,
 }

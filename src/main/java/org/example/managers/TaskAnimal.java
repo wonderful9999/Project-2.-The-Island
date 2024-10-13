@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.*;
+
 
 public class TaskAnimal implements Runnable {
     private MovingService movingService = new MovingService();
@@ -32,7 +34,7 @@ public class TaskAnimal implements Runnable {
         reproductionService.reproduction(animal);
         eatingService.eat(animal, fields);
         try {
-            Thread.sleep(5, TimeUnit.SECONDS.ordinal());
+            sleep(5, TimeUnit.SECONDS.ordinal());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

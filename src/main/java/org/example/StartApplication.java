@@ -38,7 +38,7 @@ public class StartApplication {
             for (int y = 0; y < new Cell().getMAX_Y(); y++) {
                     for (Animal tempAnimal : fields.getMapFields().get(new Cell(x , y)).getAnimalList()) {
                         Runnable tasksAnimals = () -> {
-                            new TaskAnimal(tempAnimal, fields);
+                            new TaskAnimal(tempAnimal, fields).run();
                         };
                         executorService.submit(tasksAnimals);
                     }
