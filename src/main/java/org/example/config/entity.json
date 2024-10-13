@@ -1,0 +1,36 @@
+{
+  "animalsConfigMap": {
+    "101": {
+      "maxQuantity": 35,
+      "moveCell": 6,
+      "quantityRealtime": 5,
+      "herbivore": false,
+      "idTypeAnimal": 101,
+      "name": "Медведь"
+    },
+    "102": {
+      "maxQuantity": 35,
+      "moveCell": 6,
+      "quantityRealtime": 5,
+      "herbivore": false,
+      "idTypeAnimal": 102,
+      "name": "Волк"
+    },
+    "103": {
+      "maxQuantity": 15,
+      "moveCell": 10,
+      "quantityRealtime": 5,
+      "herbivore": false,
+      "idTypeAnimal": 103,
+      "name": "Орёл"
+    },
+    "201": {
+      "maxQuantity": 25,
+      "moveCell": 7,
+      "quantityRealtime": 5,
+      "herbivore": false,
+      "idTypeAnimal": 201,
+      "name": "Кабан"
+    }
+  }
+}
