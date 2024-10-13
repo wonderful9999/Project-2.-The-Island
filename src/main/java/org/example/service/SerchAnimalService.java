@@ -9,11 +9,6 @@ import org.example.dto.models.Animals.Animal;
 import java.util.Map;
 
 public class SerchAnimalService {
-//    @Getter
-//    private static final SerchAnimalService instance = new SerchAnimalService();
-
-//    private SerchAnimalService() {
-//    }
 
     public Cell serch(Animal animal, Fields fields) {
         try {

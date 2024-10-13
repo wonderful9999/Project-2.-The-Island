@@ -6,8 +6,6 @@ import org.example.dto.location.Fields;
 import org.example.dto.models.Animals.Animal;
 
 public class DirectionService {
-//    @Getter
-//    private static final DirectionService instance = new DirectionService();
     private SerchAnimalService serchAnimalService;
 
     public DirectionService() {

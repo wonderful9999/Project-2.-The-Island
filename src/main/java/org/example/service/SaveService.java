@@ -13,11 +13,6 @@ import java.io.IOException;
 import java.util.Map;
 
 public class SaveService {
-//    @Getter
-//    private static final SaveService instance = new SaveService();
-//
-//    private SaveService() {
-//    }
 
     public void save(Fields fields) throws IOException {
         new ObjectMapper(new JsonFactory()).writeValue(new File("src/main/java/org/example/config/save/world.json"), fields);

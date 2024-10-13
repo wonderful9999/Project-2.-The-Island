@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.example.dto.location.Cell;
 import org.example.dto.location.Fields;
 import org.example.dto.models.Animals.Animal;
-import org.example.managers.TaskCreatePlant;
 import org.example.managers.TaskAnimal;
+import org.example.managers.TaskCreatePlant;
 import org.example.service.CreateWorld;
 import org.example.service.SaveService;
 
@@ -30,21 +30,21 @@ public class StartApplication {
     public void start() throws IOException {
         Fields fields = new Fields();
         createWorld.newCreateWorld(fields);
-//        saveService.save(fields);
+
 
         TaskCreatePlant taskCreatePlant = new TaskCreatePlant(fields);
 
-        Runnable tasksAnimals = () -> {
-            for (int x = 0; x < new Cell().getMAX_X(); x++) {
-                for (int y = 0; y < new Cell().getMAX_Y(); y++) {
-                    for (Animal tempAnimal : fields.getMapFields().get(new Cell(x, y)).getAnimalList()) {
-                        TaskAnimal taskAnimal = new TaskAnimal(tempAnimal, fields);
+        for (int x = 0; x < new Cell().getMAX_X(); x++) {
+            for (int y = 0; y < new Cell().getMAX_Y(); y++) {
+                    for (Animal tempAnimal : fields.getMapFields().get(new Cell(x , y)).getAnimalList()) {
+                        Runnable tasksAnimals = () -> {
+                            new TaskAnimal(tempAnimal, fields);
+                        };
+                        executorService.submit(tasksAnimals);
                     }
-                }
             }
-        };
-
-        executorService.submit(tasksAnimals);
+        }
         scheduledExecutorService.submit(taskCreatePlant);
     }
 }
+

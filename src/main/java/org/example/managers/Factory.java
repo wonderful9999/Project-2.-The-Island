@@ -8,33 +8,18 @@ import org.example.dto.enums.AnimalsType;
 import org.example.dto.models.Animals.*;
 
 public class Factory {
-//    @Getter
-//    private static final Factory instance;
 
-//    static {
-//        try {
-//            instance = new Factory();
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     private ThreadRandomManagers threadRandomManagers;
 
-    private EntityConfig entityConfig = new EntityConfig();
+    private EntityConfig entityConfig;
 
     public Factory() throws JsonProcessingException {
         threadRandomManagers = new ThreadRandomManagers();
-        entityConfig = new EntityConfig(); /*new ObjectMapper(new JsonFactory()).readValue("src/main/java/org/example/config/entity.json", EntityConfig.class)*/
+        entityConfig = new EntityConfig();
     }
 
     public Animal factoryAnimalsRandom() {
-//        try {
-//            entityConfig = new ObjectMapper(new JsonFactory()).readValue("src//main//java//org//example//config//entity.json", EntityConfig.class);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
-
         return switch (threadRandomManagers.animalsTypeRandom()) {
             case HOG -> entityConfig.getAnimalsConfigMap().get(new Hog().getIdTypeAnimal());
             case BEAR -> entityConfig.getAnimalsConfigMap().get(new Bear().getIdTypeAnimal());
@@ -44,12 +29,6 @@ public class Factory {
     }
 
     public Animal factoryAnimals(AnimalsType animalsType) {
-//        try {
-//            entityConfig = new ObjectMapper(new JsonFactory()).readValue("src//main//java//org//example//config//entity.json", EntityConfig.class);
-//        } catch (JsonProcessingException e) {
-//            throw new RuntimeException(e);
-//        }
-
         return switch (animalsType) {
             case HOG -> entityConfig.getAnimalsConfigMap().get(new Hog().getIdTypeAnimal());
             case BEAR -> entityConfig.getAnimalsConfigMap().get(new Bear().getIdTypeAnimal());

@@ -5,8 +5,6 @@ import org.example.dto.location.Fields;
 import org.example.dto.models.Animals.Animal;
 
 public class DeleteService {
-//    @Getter
-//    private static final DeleteService instance = new DeleteService();
     private SerchAnimalService serchAnimalService;
 
     public DeleteService() {

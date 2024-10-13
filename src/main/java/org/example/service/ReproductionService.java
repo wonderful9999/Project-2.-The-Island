@@ -5,8 +5,6 @@ import org.example.dto.models.Animals.Animal;
 import org.example.managers.ThreadRandomManagers;
 
 public class ReproductionService {
-//    @Getter
-//    private static final ReproductionService instance = new ReproductionService();
     private ThreadRandomManagers threadRandomManagers;
 
     public ReproductionService() {

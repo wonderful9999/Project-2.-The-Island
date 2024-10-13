@@ -16,8 +16,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ThreadRandomManagers {
-//    @Getter
-//    private static final ThreadRandomManagers instance = new ThreadRandomManagers();
+
     private ThreadLocalRandom threadLocalRandom;
     private SerchAnimalService serchAnimalService;
     private SacrificaProbability sacrificaProbability;

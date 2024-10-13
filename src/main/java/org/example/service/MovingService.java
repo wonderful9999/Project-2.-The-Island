@@ -6,8 +6,6 @@ import org.example.dto.models.Animals.Animal;
 import org.example.managers.ThreadRandomManagers;
 
 public class MovingService {
-//    @Getter
-//    private static final MovingService instance = new MovingService();
     private ThreadRandomManagers threadRandomManagers;
     private DirectionService directionService;
 

@@ -7,9 +7,6 @@ import org.example.dto.models.Plants.Plant;
 import org.example.managers.ThreadRandomManagers;
 
 public class EatingService {
-//    @Getter
-//    private static final EatingService instance = new EatingService();
-
     private SerchAnimalService serchAnimalService;
     private ThreadRandomManagers threadRandomManagers;
     private DeleteService deleteService;
