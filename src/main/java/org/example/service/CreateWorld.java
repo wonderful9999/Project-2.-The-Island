@@ -36,7 +36,7 @@ public class CreateWorld {
     }
 
     public Fields createSaveWorld() throws JsonProcessingException {
-        return new ObjectMapper(new JsonFactory()).readValue("src/main/java/org/example/config/island.json", Fields.class);
+        return new ObjectMapper(new JsonFactory()).readValue("src/main/java/org/example/config/save/world.json", Fields.class);
     }
 
 
