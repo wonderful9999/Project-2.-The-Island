@@ -1,6 +1,5 @@
 package org.example.service;
 
-import lombok.Getter;
 import org.example.dto.location.Cell;
 import org.example.dto.location.Fields;
 import org.example.dto.models.Animals.Animal;
@@ -12,7 +11,7 @@ public class DirectionService {
         serchAnimalService = new SerchAnimalService();
     }
 
-    public void directionUp(Animal animal, Fields fields) {
+    public synchronized void directionUp(Animal animal, Fields fields) {
         Cell cell = serchAnimalService.serch(animal, fields);
 
         if (cell.getX() - animal.getMoveCell() <= cell.getMAX_X()) {
@@ -22,12 +21,11 @@ public class DirectionService {
             result.setX(cell.getX() - animal.getMoveCell());
 
             fields.getMapFields().get(result).getAnimalList().add(animal);
-        }
-        else directionDown(animal, fields);
+        } else directionDown(animal, fields);
         System.out.println(animal.getName() + " переместился на " + animal.getMoveCell() + " клеток вверх");
     }
 
-    public void directionDown(Animal animal, Fields fields) {
+    public synchronized void directionDown(Animal animal, Fields fields) {
         Cell cell = serchAnimalService.serch(animal, fields);
 
         if (cell.getX() + animal.getMoveCell() <= cell.getMAX_X()) {
@@ -41,7 +39,7 @@ public class DirectionService {
         System.out.println(animal.getName() + " переместился на " + animal.getMoveCell() + " клеток вниз");
     }
 
-    public void directionLeft(Animal animal, Fields fields) {
+    public synchronized void directionLeft(Animal animal, Fields fields) {
         Cell cell = serchAnimalService.serch(animal, fields);
 
         if (cell.getY() - animal.getMoveCell() <= cell.getMAX_Y()) {
@@ -55,7 +53,7 @@ public class DirectionService {
         System.out.println(animal.getName() + " переместился на " + animal.getMoveCell() + " клеток влево");
     }
 
-    public void directionRight(Animal animal, Fields fields) {
+    public synchronized void directionRight(Animal animal, Fields fields) {
         Cell cell = serchAnimalService.serch(animal, fields);
 
         if (cell.getY() + animal.getMoveCell() <= cell.getMAX_Y()) {

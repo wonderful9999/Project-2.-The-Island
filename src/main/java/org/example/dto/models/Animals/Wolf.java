@@ -19,7 +19,7 @@ public class Wolf extends Animal implements Serializable {
     private final int moveCell = 6;
 
     @JsonProperty
-    private int quantityRealtime = 5;
+    volatile private int quantityRealtime = 5;
 
     @JsonProperty
     private final boolean herbivore = false;
@@ -28,10 +28,10 @@ public class Wolf extends Animal implements Serializable {
     private final int idTypeAnimal = 102;
 
     @JsonProperty
-    private String name = "Волк";
+    private final String name = "Волк";
 
     @Override
     public boolean getHerbivore() {
-        return super.getHerbivore();
+        return herbivore;
     }
 }

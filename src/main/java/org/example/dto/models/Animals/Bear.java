@@ -19,7 +19,7 @@ public class Bear extends Animal implements Serializable {
     private final int moveCell = 6;
 
     @JsonProperty
-    private int quantityRealtime = 5;
+    volatile private int quantityRealtime = 5;
 
     @JsonProperty
     private final boolean herbivore = false;
@@ -28,10 +28,10 @@ public class Bear extends Animal implements Serializable {
     private final int idTypeAnimal = 101;
 
     @JsonProperty
-    private String name = "Медведь";
+    private final String name = "Медведь";
 
     @Override
     public boolean getHerbivore() {
-        return super.getHerbivore();
+        return herbivore;
     }
 }

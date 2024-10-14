@@ -1,7 +1,6 @@
 package org.example.dto.models.Animals;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +15,7 @@ public abstract class Animal {
     private final int moveCell = 0;
 
     @JsonProperty
-    private int quantityRealtime = 0;
+    volatile private int quantityRealtime = 0;
 
     @JsonProperty
     private final boolean herbivore = false;
@@ -25,7 +24,7 @@ public abstract class Animal {
     private final int idTypeAnimal = 0;
 
     @JsonProperty
-    private String name = "";
+    private final String name = "";
 
     public boolean getHerbivore() {
         return herbivore;

@@ -8,9 +8,6 @@ import org.example.service.ReproductionService;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
-import static java.lang.Thread.*;
 
 
 public class TaskAnimal implements Runnable {
@@ -29,12 +26,14 @@ public class TaskAnimal implements Runnable {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         movingService.move(animal, fields);
         reproductionService.reproduction(animal);
-        eatingService.eat(animal, fields);
+        for (int i = 0; i < 5; i++) {
+            eatingService.eat(animal, fields);
+        }
         try {
-            sleep(5, TimeUnit.SECONDS.ordinal());
+            Thread.currentThread().sleep(2);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

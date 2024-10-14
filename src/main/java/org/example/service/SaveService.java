@@ -2,10 +2,8 @@ package org.example.service;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
 import org.example.dto.config.EntityConfig;
 import org.example.dto.config.InfoAnimalHunt;
-import org.example.dto.config.SacrificaProbability;
 import org.example.dto.location.Fields;
 
 import java.io.File;

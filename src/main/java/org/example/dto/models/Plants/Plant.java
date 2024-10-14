@@ -11,5 +11,5 @@ import java.io.Serializable;
 public class Plant implements Serializable {
 
     @JsonProperty
-    private int Quantity = 30;
+    volatile private int Quantity = 30;
 }

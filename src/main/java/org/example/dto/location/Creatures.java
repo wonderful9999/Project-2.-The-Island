@@ -10,6 +10,7 @@ import org.example.dto.models.Plants.Plant;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

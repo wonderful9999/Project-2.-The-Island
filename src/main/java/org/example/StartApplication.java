@@ -21,7 +21,7 @@ public class StartApplication {
     SaveService saveService;
 
     public StartApplication() throws JsonProcessingException {
-        executorService = Executors.newCachedThreadPool();
+        executorService = Executors.newFixedThreadPool(4);
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         createWorld = new CreateWorld();
         saveService = new SaveService();
@@ -30,21 +30,28 @@ public class StartApplication {
     public void start() throws IOException {
         Fields fields = new Fields();
         createWorld.newCreateWorld(fields);
+//        saveService.save(fields);
 
 
         TaskCreatePlant taskCreatePlant = new TaskCreatePlant(fields);
-
-        for (int x = 0; x < new Cell().getMAX_X(); x++) {
-            for (int y = 0; y < new Cell().getMAX_Y(); y++) {
-                    for (Animal tempAnimal : fields.getMapFields().get(new Cell(x , y)).getAnimalList()) {
+        while (true) {
+            for (int x = 0; x < new Cell().getMAX_X(); x++) {
+                for (int y = 0; y < new Cell().getMAX_Y(); y++) {
+                    for (Animal tempAnimal : fields.getMapFields().get(new Cell(x, y)).getAnimalList()) {
                         Runnable tasksAnimals = () -> {
                             new TaskAnimal(tempAnimal, fields).run();
                         };
                         executorService.submit(tasksAnimals);
+
                     }
+
+                }
+                scheduledExecutorService.submit(taskCreatePlant);
             }
+
         }
-        scheduledExecutorService.submit(taskCreatePlant);
+
+
     }
 }
 

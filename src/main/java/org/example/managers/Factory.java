@@ -1,8 +1,6 @@
 package org.example.managers;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.dto.config.EntityConfig;
 import org.example.dto.enums.AnimalsType;
 import org.example.dto.models.Animals.*;
@@ -19,7 +17,7 @@ public class Factory {
         entityConfig = new EntityConfig();
     }
 
-    public Animal factoryAnimalsRandom() {
+    public synchronized Animal factoryAnimalsRandom() {
         return switch (threadRandomManagers.animalsTypeRandom()) {
             case HOG -> entityConfig.getAnimalsConfigMap().get(new Hog().getIdTypeAnimal());
             case BEAR -> entityConfig.getAnimalsConfigMap().get(new Bear().getIdTypeAnimal());
@@ -28,7 +26,7 @@ public class Factory {
         };
     }
 
-    public Animal factoryAnimals(AnimalsType animalsType) {
+    public synchronized Animal factoryAnimals(AnimalsType animalsType) {
         return switch (animalsType) {
             case HOG -> entityConfig.getAnimalsConfigMap().get(new Hog().getIdTypeAnimal());
             case BEAR -> entityConfig.getAnimalsConfigMap().get(new Bear().getIdTypeAnimal());

@@ -1,6 +1,5 @@
 package org.example.service;
 
-import lombok.Getter;
 import org.example.dto.location.Fields;
 import org.example.dto.models.Animals.Animal;
 import org.example.managers.ThreadRandomManagers;
@@ -14,7 +13,7 @@ public class MovingService {
         threadRandomManagers = new ThreadRandomManagers();
     }
 
-    public void move(Animal animal, Fields fields) {
+    public synchronized void move(Animal animal, Fields fields) {
         switch (threadRandomManagers.directionRandom()) {
             case UP -> directionService.directionUp(animal, fields);
             case DOWN -> directionService.directionDown(animal, fields);

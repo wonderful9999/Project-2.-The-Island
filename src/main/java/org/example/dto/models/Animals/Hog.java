@@ -19,7 +19,7 @@ public class Hog extends Animal implements Serializable {
     private final int moveCell = 7;
 
     @JsonProperty
-    private int quantityRealtime = 5;
+    volatile private int quantityRealtime = 5;
 
     @JsonProperty
     private final boolean herbivore = true;
@@ -28,10 +28,10 @@ public class Hog extends Animal implements Serializable {
     private final int idTypeAnimal = 201;
 
     @JsonProperty
-    private String name = "Кабан";
+    private final String name = "Кабан";
 
     @Override
     public boolean getHerbivore() {
-        return super.getHerbivore();
+        return herbivore;
     }
 }

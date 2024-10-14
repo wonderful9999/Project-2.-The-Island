@@ -1,6 +1,5 @@
 package org.example.service;
 
-import lombok.Getter;
 import org.example.dto.location.Cell;
 import org.example.dto.location.Creatures;
 import org.example.dto.location.Fields;

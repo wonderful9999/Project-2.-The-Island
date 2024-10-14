@@ -1,6 +1,5 @@
 package org.example.service;
 
-import lombok.Getter;
 import org.example.dto.location.Fields;
 import org.example.dto.models.Animals.Animal;
 
@@ -11,7 +10,7 @@ public class DeleteService {
         serchAnimalService = new SerchAnimalService();
     }
 
-    public void deleteAnimal(Animal animal, Fields fields) {
+    public synchronized void deleteAnimal(Animal animal, Fields fields) {
         fields.getMapFields().get(serchAnimalService.serch(animal, fields)).getAnimalList().remove(animal);
     }
 }
